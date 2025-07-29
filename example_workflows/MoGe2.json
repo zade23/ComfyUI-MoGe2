@@ -1,0 +1,467 @@
+{
+  "id": "c7ea40d9-585a-4869-a3dc-bfee33fb8cfd",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 15,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        1830.2044677734375,
+        1689.3570556640625
+      ],
+      "size": [
+        316.03302001953125,
+        352.0509948730469
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "Preview3D",
+      "pos": [
+        2530.62744140625,
+        1693.91357421875
+      ],
+      "size": [
+        339.7372741699219,
+        380.2227478027344
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "camera_info",
+          "shape": 7,
+          "type": "LOAD3D_CAMERA",
+          "link": null
+        },
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "widget": {
+            "name": "model_file"
+          },
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "Preview3D",
+        "Last Time Model File": "3D/MoGe_00046_.glb",
+        "Camera Info": {
+          "position": {
+            "x": -0.05824729298352651,
+            "y": 0.106276039689162,
+            "z": 11.1836740718856
+          },
+          "target": {
+            "x": 0,
+            "y": 2.071458937139295,
+            "z": 0
+          },
+          "zoom": 1,
+          "cameraType": "perspective"
+        }
+      },
+      "widgets_values": [
+        "3D/MoGe_00046_.glb",
+        ""
+      ]
+    },
+    {
+      "id": 7,
+      "type": "RunMoGe2Process",
+      "pos": [
+        1545.396728515625,
+        1351.33056640625
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depth",
+          "type": "IMAGE",
+          "links": [
+            7
+          ]
+        },
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "glb_path",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RunMoGe2Process"
+      },
+      "widgets_values": [
+        "v1",
+        800,
+        "High",
+        true,
+        true,
+        "3D/MoGe"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [
+        1838.514404296875,
+        1266.42431640625
+      ],
+      "size": [
+        316.03302001953125,
+        352.0509948730469
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 2,
+      "type": "PreviewImage",
+      "pos": [
+        2177.4384765625,
+        1265.4598388671875
+      ],
+      "size": [
+        313.7860107421875,
+        349.59698486328125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "Preview3D",
+      "pos": [
+        2536.27587890625,
+        1243.02783203125
+      ],
+      "size": [
+        339.7372741699219,
+        380.2227478027344
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "camera_info",
+          "shape": 7,
+          "type": "LOAD3D_CAMERA",
+          "link": null
+        },
+        {
+          "name": "model_file",
+          "type": "STRING",
+          "widget": {
+            "name": "model_file"
+          },
+          "link": 8
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "Preview3D",
+        "Last Time Model File": "3D/MoGe_00045_.glb",
+        "Camera Info": {
+          "position": {
+            "x": -0.6148034973119686,
+            "y": 0.1058543523266613,
+            "z": 11.09953488668684
+          },
+          "target": {
+            "x": 0,
+            "y": 1.9769166304489802,
+            "z": 0
+          },
+          "zoom": 1,
+          "cameraType": "perspective"
+        }
+      },
+      "widgets_values": [
+        "3D/MoGe_00045_.glb",
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "RunMoGe2Process",
+      "pos": [
+        1539.748779296875,
+        1679.7615966796875
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depth",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        },
+        {
+          "name": "normal",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "glb_path",
+          "type": "STRING",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RunMoGe2Process"
+      },
+      "widgets_values": [
+        "v2",
+        800,
+        "High",
+        true,
+        true,
+        "3D/MoGe"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "PreviewImage",
+      "pos": [
+        2187.532470703125,
+        1695.6861572265625
+      ],
+      "size": [
+        313.7860107421875,
+        349.59698486328125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        1160.780517578125,
+        1494.3857421875
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            10
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "08_CatGirl (1).png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      6,
+      7,
+      1,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      7,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      7,
+      2,
+      5,
+      1,
+      "STRING"
+    ],
+    [
+      9,
+      4,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      4,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      8,
+      2,
+      11,
+      1,
+      "STRING"
+    ],
+    [
+      14,
+      8,
+      1,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        -1099.3831915921774,
+        -1187.2478373111148
+      ]
+    },
+    "frontendVersion": "1.23.4"
+  },
+  "version": 0.4
+}
