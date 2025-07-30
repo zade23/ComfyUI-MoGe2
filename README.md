@@ -2,7 +2,7 @@
 
 [ComfyUI](https://github.com/comfyanonymous/ComfyUI) nodes to use [MoGe2](https://github.com/microsoft/MoGe) prediction.
 
-![](./example_workflows/MoGe2.png)
+![](./example_workflows/MoGe2.jpg)
 
 Original repo: https://github.com/microsoft/MoGe
 
