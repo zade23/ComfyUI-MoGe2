@@ -31,6 +31,7 @@ class RunMoGe2Process:
                 "resolution_level": (["Low", "Medium", "High", "Ultra"], {"default": "High"}),
                 "remove_edge": ("BOOLEAN", {"default": True}),
                 "apply_mask": ("BOOLEAN", {"default": True}),
+                "output_glb": ("BOOLEAN", {"default": True}),  # 新增的开关按钮
                 "filename_prefix": ("STRING", {"default": "3D/MoGe"}),
             }
         }
@@ -42,7 +43,7 @@ class RunMoGe2Process:
     OUTPUT_NODE = True
     DESCRIPTION = "Runs the MoGe2 model on the input image. \n v1: Ruicheng/moge-vitl \n v2: Ruicheng/moge-2-vitl-normal"
     
-    def process(self, model: str, image, max_size: int, resolution_level: str, remove_edge: bool, apply_mask: bool, filename_prefix: str) -> Tuple[torch.Tensor, torch.Tensor, str]:
+    def process(self, model: str, image, max_size: int, resolution_level: str, remove_edge: bool, apply_mask: bool, output_glb: bool, filename_prefix: str) -> Tuple[torch.Tensor, torch.Tensor, str]:
         
         model_version = model
         
@@ -167,26 +168,29 @@ class RunMoGe2Process:
         full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, folder_paths.get_output_directory())
         relative_path = "" # Initialize to empty string
         
-        mesh = trimesh.Trimesh(
-            vertices=vertices,
-            faces=faces, 
-            vertex_normals=vertex_normals,
-            visual = trimesh.visual.texture.TextureVisuals(
-                uv=vertex_uvs, 
-                material=trimesh.visual.material.PBRMaterial(
-                    baseColorTexture=Image.fromarray(image),
-                    metallicFactor=0.5,
-                    roughnessFactor=1.0
-                )
-            ),
-            process=False
-        )
-        
-        output_glb_path = Path(full_output_folder) / f'{filename}_{counter:05}_.glb'
-        output_glb_path.parent.mkdir(exist_ok=True, parents=True)
-        mesh.export(output_glb_path)
-        relative_path = str(Path(subfolder) / f'{filename}_{counter:05}_.glb')
-        
+        if output_glb:
+            mesh = trimesh.Trimesh(
+                vertices=vertices,
+                faces=faces,
+                vertex_normals=vertex_normals,
+                visual = trimesh.visual.texture.TextureVisuals(
+                    uv=vertex_uvs,
+                    material=trimesh.visual.material.PBRMaterial(
+                        baseColorTexture=Image.fromarray(image),
+                        metallicFactor=0.5,
+                        roughnessFactor=1.0
+                    )
+                ),
+                process=False
+            )
+
+            output_glb_path = Path(full_output_folder) / f'{filename}_{counter:05}_.glb'
+            output_glb_path.parent.mkdir(exist_ok=True, parents=True)
+            mesh.export(output_glb_path)
+            relative_path = str(Path(subfolder) / f'{filename}_{counter:05}_.glb')
+        else:
+            relative_path = "GLB export disabled"
+
         return (depth_tensor, normal_vis_tensor, relative_path)
 
 NODE_CLASS_MAPPINGS = {
