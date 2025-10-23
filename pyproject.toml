@@ -29,7 +29,7 @@ Documentation = "https://github.com/zade23/ComfyUI-MoGe2/wiki"
 "Bug Tracker" = "https://github.com/zade23/ComfyUI-MoGe2/issues"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "zhandroid"
 DisplayName = "ComfyUI-MoGe2"
 Icon = ""
 includes = [] 
